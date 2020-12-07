@@ -3,14 +3,10 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
-import numpy as np
-
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
-from sklearn.metrics import accuracy_score, classification_report, f1_score
 
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 """ Split player and team labels"""
 data = pd.read_csv("./Data/ModelDataKMeans.csv")
@@ -58,6 +54,7 @@ stdNumDataDf = pd.concat([stdNumDataDf, namesAndTeamsDf], axis=1,ignore_index=Tr
 stdNumDataDf.columns = columnNames
 # stdNumDataDf.to_csv("./kMeansOutput.csv", index=False, header=True)
 centers = kmeans.cluster_centers_
+
 """TIME VS SCORE"""
 # plt.title("Time played versus Score")
 # plt.xlabel("Time played")
@@ -67,6 +64,7 @@ centers = kmeans.cluster_centers_
 #              # Sorry I couldn't make this work, I was trying to show specific players as their own colors.
 # plt.scatter(stdNumDataDf.MIN, stdNumDataDf.PTS, c=yOutput.Value, s=25, cmap="viridis")
 # plt.scatter(centers[:, 0], centers[:, 16], c="black", s=200, alpha=0.5)
+# plt.show()
 
 """FG3A VS BLK"""
 # plt.title("3-Point Attempts vs Blocks")
@@ -76,6 +74,7 @@ centers = kmeans.cluster_centers_
 # plt.scatter(stdNumDataDf.FG3A, stdNumDataDf.BLK, c=yOutput.Value, s=25, cmap="viridis")
 # centers = kmeans.cluster_centers_
 # plt.scatter(centers[:, 4], centers[:, 12], c="black", s=200, alpha=0.5)
+# plt.show()
 
 """AST VS TOV"""
 plt.title("Assists vs Turnovers")
@@ -85,5 +84,4 @@ print(stdNumDataDf)
 plt.scatter(stdNumDataDf.AST, stdNumDataDf.TOV, c=yOutput.Value, s=25, cmap="viridis")
 centers = kmeans.cluster_centers_
 plt.scatter(centers[:, 9], centers[:, 10], c="black", s=200, alpha=0.5)
-
 plt.show()

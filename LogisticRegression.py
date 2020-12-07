@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
 
+"""LOGISTIC MODEL IMPLEMENTATION"""
 data = pd.read_csv("./Data/ModelDataRegression.csv")
 # features = ["PERIOD", "MINUTES_REMAINING", "SECONDS_REMAINING", "SHOT_DISTANCE", "HOME", "MONTH",
 #             "DAY", "3PT ATTEMPT",
